@@ -1,0 +1,182 @@
+//=============== user router ===============//
+// register user request
+POST http://localhost:5000/user/auth/register
+Content-Type: application/json
+
+{
+    "username": "Tung2",
+    "password": "12345"
+}
+
+
+###
+// user login request
+POST http://localhost:5000/user/auth/login
+Content-Type: application/json
+
+{
+    "username": "TepThui",
+    "password": "12345"
+}
+
+###
+
+// change username
+PUT http://localhost:5000/user/changeUsername
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjA3OTQ4OWNhODljNTA1ZjBkNjc3MzkiLCJpYXQiOjE2NDU2NjcxMzR9.JvOhHI0nKt0hmlGRGGCHXVFMkneYaw16Nj3ytTdaX84
+
+{
+    "username": "HoangOanh3"
+}
+
+###
+// change password
+PUT http://localhost:5000/user/changePassword
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjA3OTQyZWNhODljNTA1ZjBkNjc3MzMiLCJpYXQiOjE2NDU2MDYxOTh9.c5qae-vlvBIY5f5cT0JhgiWXYODOH6UQQ9SBA2LllVk
+
+{
+    "oldPassword": "54321",
+    "newPassword": "12345"
+}
+
+
+//=============== data router ===============//
+###
+// create Data request
+POST http://localhost:5000/data/create
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjA3OTQ4OWNhODljNTA1ZjBkNjc3MzkiLCJpYXQiOjE2NDQ2NjM5NDV9.SyuLW5zt8_OygAGtEfdAFo449xJRB5IRUQlltcipa58
+
+{
+    "title": "Hoang Oanh post 2",
+    "description": "Hoang Oanh post 2",
+    "url": "www.youtube.com/watch?v=rgFd17fyM4A"
+}
+
+###
+// update Data request
+PUT http://localhost:5000/data/620799d4e6481c4cd0fddbff
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjA3OTQyZWNhODljNTA1ZjBkNjc3MzMiLCJpYXQiOjE2NDQ2NjM4NTR9.GfwFy1IFYUFMZ-WNU9tgDlN8OFgmi2KoDUQco4nQmZI
+
+{
+    "title": "Hoang Oanh post repaired 2",
+    "description": "Hoang Oanh post repaired 2",
+    "url": "www.youtube.com/watch?v=rgFd17fyM4Anew"
+}
+
+###
+// Delete Data request
+DELETE http://localhost:5000/data/620bbf4b6d73a73883f64330
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjA3OTQyZWNhODljNTA1ZjBkNjc3MzMiLCJpYXQiOjE2NDQ2NjM4NTR9.GfwFy1IFYUFMZ-WNU9tgDlN8OFgmi2KoDUQco4nQmZI
+
+
+
+//=============== admin router ===============//
+###
+// create ConfigApp request
+POST http://localhost:5000/admin/setConfigApp
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjA3OTQyZWNhODljNTA1ZjBkNjc3MzMiLCJpYXQiOjE2NDU0MDcyNDV9.Vsc7IndSmQcegdGB-_zJNpVt6E7o6YJfmqezOT6IYV4
+
+{
+    "lockRegister": false, 
+    "showMemFamilyName": true, 
+    "showPhoneNumber": true,
+    "showEmailAddress": true, 
+    "PhoneNumber": "0973819272", 
+    "EmailAddress": "duongvantungbkdn@gmail.com",
+    "MemFamilyName": "Duong Van Tung"
+}
+
+###
+// update ConfigApp request
+PUT http://localhost:5000/admin/updateConfigApp
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjA3OTQyZWNhODljNTA1ZjBkNjc3MzMiLCJpYXQiOjE2NDU0MDcyNDV9.Vsc7IndSmQcegdGB-_zJNpVt6E7o6YJfmqezOT6IYV4
+
+{
+    "lockRegister": true, 
+    "showMemFamilyName": false, 
+    "showPhoneNumber": true,
+    "showEmailAddress": true, 
+    "PhoneNumber": "0973819272", 
+    "EmailAddress": "duongvantungbkdn@gmail.com",
+    "MemFamilyName": "Duong Van Tung"
+}
+
+###
+// Restore Data request
+PATCH http://localhost:5000/admin/data/620bbf4b6d73a73883f64330
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjA3OTQyZWNhODljNTA1ZjBkNjc3MzMiLCJpYXQiOjE2NDQ2NjM4NTR9.GfwFy1IFYUFMZ-WNU9tgDlN8OFgmi2KoDUQco4nQmZI
+
+###
+// Force Delete Data request
+DELETE http://localhost:5000/admin/data/620d142cfc734036e4958cb3
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjA3OTQyZWNhODljNTA1ZjBkNjc3MzMiLCJpYXQiOjE2NDQ2NjM4NTR9.GfwFy1IFYUFMZ-WNU9tgDlN8OFgmi2KoDUQco4nQmZI
+
+###
+// Lock (soft delete) user request
+DELETE http://localhost:5000/admin/user/62092a480843fa90f17b98ba
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjA3OTQyZWNhODljNTA1ZjBkNjc3MzMiLCJpYXQiOjE2NDQ2NjM4NTR9.GfwFy1IFYUFMZ-WNU9tgDlN8OFgmi2KoDUQco4nQmZI
+
+###
+// Restore user request
+PATCH http://localhost:5000/admin/user/62092a480843fa90f17b98ba
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjA3OTQyZWNhODljNTA1ZjBkNjc3MzMiLCJpYXQiOjE2NDQ2NjM4NTR9.GfwFy1IFYUFMZ-WNU9tgDlN8OFgmi2KoDUQco4nQmZI
+
+
+###
+// Remove (Force Delete) user request
+DELETE http://localhost:5000/admin/user/remove/62091f430843fa90f17b9875
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjA3OTQyZWNhODljNTA1ZjBkNjc3MzMiLCJpYXQiOjE2NDQ2NjM4NTR9.GfwFy1IFYUFMZ-WNU9tgDlN8OFgmi2KoDUQco4nQmZI
+
+
+###
+// UserDeletedList request
+GET http://localhost:5000/admin/usersList
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjA3OTQyZWNhODljNTA1ZjBkNjc3MzMiLCJpYXQiOjE2NDQ2NjM4NTR9.GfwFy1IFYUFMZ-WNU9tgDlN8OFgmi2KoDUQco4nQmZI
+
+###
+// change user role request
+PUT http://localhost:5000/admin/updateUserRole
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjA3OTQyZWNhODljNTA1ZjBkNjc3MzMiLCJpYXQiOjE2NDU0MDcyNDV9.Vsc7IndSmQcegdGB-_zJNpVt6E7o6YJfmqezOT6IYV4
+
+{
+    "_id":"62079489ca89c505f0d67739",
+    "role":"ADM1"
+}
+
+//=============== Public router ===============//
+###
+// public contact request
+GET http://localhost:5000/contact
+
+###
+// public news request
+GET http://localhost:5000/news
+
+###
+// public home request
+GET http://localhost:5000
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjA3OTQyZWNhODljNTA1ZjBkNjc3MzMiLCJpYXQiOjE2NDQ2NjM4NTR9.GfwFy1IFYUFMZ-WNU9tgDlN8OFgmi2KoDUQco4nQmZI
+
+###
+// public home request
+GET http://localhost:5000/configApp
+
+
+// accessToken HoangOanh eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjA3OTQ4OWNhODljNTA1ZjBkNjc3MzkiLCJpYXQiOjE2NDQ2NjM5NDV9.SyuLW5zt8_OygAGtEfdAFo449xJRB5IRUQlltcipa58
+// accessToken TepThui eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjA3OTRiMmNhODljNTA1ZjBkNjc3M2QiLCJpYXQiOjE2NDQ2NjM5ODZ9.11DJAK91QI7BKJcT2QvGHkChPiE8Qafn7lAdtPXg3xo
+// accessToken DuongTung eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjA3OTQyZWNhODljNTA1ZjBkNjc3MzMiLCJpYXQiOjE2NDU0MDcyNDV9.Vsc7IndSmQcegdGB-_zJNpVt6E7o6YJfmqezOT6IYV4
